@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-baidu-ai"
+        version="1.0.0">
+    <name>cordova-plugin-baidu-ai</name>
+    <description>百度开放平台-语音识别和文字识别</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,baidu-ai,ocr,speech,android,ios</keywords>
+
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0"/>
+    </engines>
+
+    <js-module src="www/baiduAI.js" name="baiduAI">
+        <clobbers target="window.BaiduAI"/>
+    </js-module>
+
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BaiduAI">
+                <param name="ios-package" value="BaiduAIPlugin"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/AipAsrService.h"/>
+        <source-file src="src/ios/AipAsrService.m"/>
+        <header-file src="src/ios/AipOcrService.h"/>
+        <source-file src="src/ios/AipOcrService.m"/>
+        <header-file src="src/ios/BaiduAIPlugin.h"/>
+        <source-file src="src/ios/BaiduAIPlugin.m"/>
+
+        <framework src="libs/ios/AipBase.framework" custom="true"/>
+        <framework src="libs/ios/AipOcrSdk.framework" custom="true"/>
+        <framework src="libs/ios/IdcardQuality.framework" custom="true"/>
+
+        <framework src="AipBase.framework"/>
+        <framework src="AipOcrSdk.framework"/>
+        <framework src="IdcardQuality.framework"/>
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BaiduAI">
+                <param name="android-package" value="com.asiainfo.cordova.plugin.BaiduAIPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/andorid/com/asiainfo/cordova/plugin/BaiduAIPlugin.java"
+                     target-dir="src/com/asiainfo/cordova/plugin/"/>
+    </platform>
+
+</plugin>
