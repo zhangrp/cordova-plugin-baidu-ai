@@ -162,11 +162,8 @@
             NSLog(@"BaiduAIPlugin appId=%@", appId);
             NSLog(@"BaiduAIPlugin apiKey=%@", apiKey);
             NSLog(@"BaiduAIPlugin voice=%@", voice);
-            
-            apiKey = @"cT8Y1MKP5D5gcex5AYbjzQFW";
-            secrtKey = @"GmVrjKP0Tfb7x5Tq04GIzdKs8z8Hcfhf";
-            
-            
+
+
             [[AipAsrService shardService] authWithAK:apiKey andSK:secrtKey];
             AipAsrService *aipAsrService = [AipAsrService shardService];
             
